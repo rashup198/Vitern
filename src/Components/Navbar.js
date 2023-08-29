@@ -51,7 +51,7 @@ const Navbar = () => {
 
             {isAuthenticated ? (
               <button
-                className='btnLogin  border-white p-1 pl-2 pr-2 rounded-md  text-xl hover:bg-yellow-300 hover:text-[#6523f4] transition-all duration-200 border-2 text-white '
+                className='btnLogin  border-white p-1 pl-2 pr-2 rounded-md  text-xl hover:bg-[#e4eff3] hover:text-[#013F6A] transition-all duration-200 border-2 text-white hover:text-xl '
                 onClick={() =>
                   logout({ logoutParams: { returnTo: window.location.origin } })
                 }
@@ -60,7 +60,7 @@ const Navbar = () => {
               </button>
             ) : (
               <button
-                className='btnLogin p-1 pl-2 pr-2 rounded-md text-xl text-white hover:bg-yellow-300 hover:text-[#6523f4] transition-all duration-200 border-2 border-[#ffffff]'
+                className='btnLogin p-1 pl-2 pr-2 rounded-md text-xl text-white hover:bg-[#e4eff3] hover:text-[#013F6A] hover:text-xl transition-all duration-200 border-2 border-[#ffffff]'
                 onClick={() => loginWithRedirect()}
               >
                 Log In
