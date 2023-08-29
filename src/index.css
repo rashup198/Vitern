@@ -14,17 +14,17 @@
 .txt{
     font-family: "Quicksand", sans-serif;
 }
-a {
+.a {
     position: relative;
     color: #ffffff;
     text-decoration: none;
   }
   
-  a:hover {
+  .a:hover {
     color: #ffffff;
   }
   
-  a::before {
+  .a::before {
     content: "";
     position: absolute;
     display: block;
@@ -37,6 +37,6 @@ a {
     transition: transform 0.3s ease;
   }
   
-  a:hover::before {
+  .a:hover::before {
     transform: scaleX(1);
   }
