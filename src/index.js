@@ -7,6 +7,10 @@ import Navbar from './Components/Navbar';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
+import JobSearch from './Components/JobSearch';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'http://localhost:5000';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,11 +23,13 @@ root.render(
     }}
   >
        <Navbar />
+       <JobSearch></JobSearch>
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/about" element={<About/>} />
 
       </Routes>
+      
   </Auth0Provider>
   </BrowserRouter>
 );
