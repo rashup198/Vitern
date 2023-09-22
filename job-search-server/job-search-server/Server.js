@@ -15,7 +15,7 @@ app.get('/api/jobs', async (req, res) => {
 
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.goto(`https://in.indeed.com/jobs?q=${title}`);
+    await page.goto(`https://apna.co/jobs?search=true&text=Software%20Development%20Engineer&entity_id=10053369&entity_type=${title}`);
 
     const jobListings = await page.evaluate(() => {
       const listings = Array.from(document.querySelectorAll('.jobsearch-SerpJobCard'));
