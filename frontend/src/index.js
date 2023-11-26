@@ -1,35 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Auth0Provider } from '@auth0/auth0-react';
-import './index.css';
-import About from './Components/About';
-import Navbar from './Components/Navbar';
-import App from './App';
-import { BrowserRouter } from 'react-router-dom';
-import { Route, Routes } from 'react-router-dom';
-import JobSearch from './Components/JobSearch';
-import axios from 'axios';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
 
-axios.defaults.baseURL = 'http://localhost:5000';
+import { BrowserRouter } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { Provider } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+import rootReducer from "./reducer";
+
+const store = configureStore({
+  reducer: rootReducer,
+});
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-  <Auth0Provider
-    domain="dev-4p1c8ufdtgrvebgr.us.auth0.com"
-    clientId="bCp2by4O0uBJXdlPG0opaPpQlbHxm37x"
-    authorizationParams={{
-      redirect_uri: window.location.origin
-    }}
-  >
-       <Navbar />
-       {/* <JobSearch></JobSearch> */}
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/about" element={<About/>} />
-
-      </Routes>
-      
-  </Auth0Provider>
-  </BrowserRouter>
+  <React.StrictMode>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+        <Toaster />
+      </BrowserRouter>
+    </Provider>
+  </React.StrictMode>
 );
