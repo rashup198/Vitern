@@ -23,7 +23,7 @@ root.render(
     }}
   >
        <Navbar />
-       <JobSearch></JobSearch>
+       {/* <JobSearch></JobSearch> */}
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/about" element={<About/>} />
