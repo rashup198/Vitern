@@ -4,7 +4,6 @@ import {NavbarLinks} from "../../data/navbar-links"
 import { useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
-import ProfileDropDown from '../core/Auth/ProfileDropdown'
 import { apiConnector } from '../../services/apiConnector'
 import { categories } from '../../services/apis'
 import { useState } from 'react'
@@ -12,8 +11,6 @@ import { IoIosArrowDropdownCircle } from 'react-icons/io'
 
 const Navbar = () => {
     const {token} = useSelector( (state) => state.auth );
-  const {user} = useSelector( (state) => state.profile );
-  const {totalItems} = useSelector( (state) => state.cart );
   const location = useLocation();
 const matchRoute = (route) => {
     return matchPath({path: route}, location.pathname);
@@ -72,20 +69,7 @@ const matchRoute = (route) => {
           {/* Login/SignUp/Dashboard */}
           <div className='flex gap-x-4 items-center'>
 
-        {
-            user && user?.accountType != "Influencer" && (
-                <Link to="/dashboard/cart" className='relative'>
-                    <AiOutlineShoppingCart />
-                    {
-                        totalItems > 0 && (
-                            <span>
-                                {totalItems}
-                            </span>
-                        )
-                    }
-                </Link>
-            )
-        }
+        
         {
             token === null && (
                 <Link to="/login">
@@ -104,9 +88,7 @@ const matchRoute = (route) => {
                 </Link>
             )
         }
-        {
-            token !== null && <ProfileDropDown />
-        }
+        
 
 </div>
 
